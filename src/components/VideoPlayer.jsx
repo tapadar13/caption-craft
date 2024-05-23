@@ -3,12 +3,18 @@ import YouTube from "react-youtube";
 
 const VideoPlayer = ({ videoUrl, captions }) => {
   const [error, setError] = useState("");
+  const [hasAttemptedLoad, setHasAttemptedLoad] = useState(false);
+
   const playerRef = useRef(null);
+
   const isYouTubeUrl =
     videoUrl.includes("youtube.com") || videoUrl.includes("youtu.be");
 
   useEffect(() => {
-    setError("");
+    if (videoUrl) {
+      setHasAttemptedLoad(true);
+      setError("");
+    }
   }, [videoUrl]);
 
   const handleTimeUpdate = () => {
@@ -65,33 +71,37 @@ const VideoPlayer = ({ videoUrl, captions }) => {
     );
   };
 
-  if (error) {
+  if (error && hasAttemptedLoad) {
     return <div className="text-red-500">{error}</div>;
   }
 
   return (
     <div className="relative">
-      {isYouTubeUrl ? (
-        renderYouTubeEmbed(videoUrl)
-      ) : (
-        <video
-          src={videoUrl}
-          controls
-          className="w-full"
-          ref={playerRef}
-          onTimeUpdate={handleTimeUpdate}
-          onError={() => setError("Invalid video URL")}
-        />
+      {videoUrl && (
+        <>
+          {isYouTubeUrl ? (
+            renderYouTubeEmbed(videoUrl)
+          ) : (
+            <video
+              src={videoUrl}
+              controls
+              className="w-full"
+              ref={playerRef}
+              onTimeUpdate={handleTimeUpdate}
+              onError={() => setError("Invalid video URL")}
+            />
+          )}
+          <div className="absolute bottom-10 left-0 w-full text-center text-white">
+            {captions.map((caption) => (
+              <div
+                key={caption.id}
+                id={`caption-${caption.id}`}
+                className="hidden bg-black bg-opacity-50"
+              ></div>
+            ))}
+          </div>
+        </>
       )}
-      <div className="absolute bottom-10 left-0 w-full text-center text-white">
-        {captions.map((caption) => (
-          <div
-            key={caption.id}
-            id={`caption-${caption.id}`}
-            className="hidden bg-black bg-opacity-50"
-          ></div>
-        ))}
-      </div>
     </div>
   );
 };
