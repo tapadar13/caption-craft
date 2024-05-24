@@ -39,7 +39,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
           placeholder="Enter caption text"
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
-        <div className="flex space-x-4">
+        <div className="flex gap-4">
           <label htmlFor="start-time" className="sr-only">
             Start Time
           </label>
@@ -49,7 +49,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
             placeholder="Start Time (seconds)"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full ml-0 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <label htmlFor="end-time" className="sr-only">
             End Time
