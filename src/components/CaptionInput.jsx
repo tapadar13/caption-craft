@@ -16,7 +16,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
 
   return (
     <div>
-      <p className="text-gray-500 mb-2 flex items-center">
+      <p className="text-gray-500 mt-2 mb-2 flex items-center">
         <FaClock className="mr-2" />
         You can add multiple captions by entering the text, start time, and end
         time, then clicking "Add Caption". Repeat for each caption you want to
@@ -48,26 +48,26 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
         </div>
         <button
           type="submit"
-          className="px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full px-4 py-2 text-white bg-gradient-to-r from-indigo-500 to-blue-500 hover:from-indigo-600 hover:to-blue-600 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           Add Caption
         </button>
       </form>
-      <div className="mt-4">
+      <div className="mt-4 space-y-2">
         {captions.map((caption) => (
           <div
             key={caption.id}
-            className="flex justify-between items-center bg-gray-100 p-2 rounded-lg mb-2"
+            className="flex justify-between items-center border border-gray-300 p-2 rounded-lg"
           >
-            <div>
-              <p className="font-semibold">{caption.text}</p>
-              <p className="text-gray-500">
+            <div className="text-gray-700 flex-1">
+              <div>{caption.text}</div>
+              <div className="text-sm text-gray-500">
                 Start: {caption.startTime}s, End: {caption.endTime}s
-              </p>
+              </div>
             </div>
             <button
               onClick={() => removeCaption(caption.id)}
-              className="px-2 py-1 text-white bg-red-500 hover:bg-red-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500"
+              className="ml-4 px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-red-500"
             >
               Remove
             </button>

@@ -22,7 +22,7 @@ const VideoPlayer = ({ videoUrl, captions }) => {
     const currentTime = playerRef.current.getCurrentTime();
     captions.forEach((caption) => {
       const captionElement = document.getElementById(`caption-${caption.id}`);
-      if (currentTime >= caption.startTime && currentTime <= caption.endTime) {
+      if (currentTime >= caption.startTime && currentTime < caption.endTime) {
         displayCaptionIncrementally(caption, currentTime, captionElement);
       } else {
         captionElement.style.display = "none";
@@ -39,7 +39,7 @@ const VideoPlayer = ({ videoUrl, captions }) => {
     const timeElapsed = currentTime - caption.startTime;
     const words = caption.text.split(" ");
     const totalWords = words.length;
-    const wordsToShow = Math.floor((timeElapsed / duration) * totalWords);
+    const wordsToShow = Math.ceil((timeElapsed / duration) * totalWords);
     captionElement.style.display = "block";
     captionElement.innerText = words.slice(0, wordsToShow).join(" ");
   };
