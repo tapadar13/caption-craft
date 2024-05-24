@@ -67,12 +67,17 @@ const VideoPlayer = ({ videoUrl, captions }) => {
         opts={{ width: "100%", height: "480" }}
         onReady={onPlayerReady}
         onStateChange={onPlayerStateChange}
+        title="YouTube video player"
       />
     );
   };
 
   if (error && hasAttemptedLoad) {
-    return <div className="text-red-500">{error}</div>;
+    return (
+      <div className="text-red-500" role="alert">
+        {error}
+      </div>
+    );
   }
 
   return (
@@ -89,7 +94,9 @@ const VideoPlayer = ({ videoUrl, captions }) => {
               ref={playerRef}
               onTimeUpdate={handleTimeUpdate}
               onError={() => setError("Invalid video URL")}
-            />
+            >
+              <track kind="captions" />
+            </video>
           )}
           <div className="absolute bottom-10 left-0 w-full text-center text-white">
             {captions.map((caption) => (

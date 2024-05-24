@@ -15,15 +15,24 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
   };
 
   return (
-    <div>
+    <section aria-labelledby="caption-input-heading">
+      <h2 id="caption-input-heading" className="sr-only">
+        Caption Input
+      </h2>
       <p className="text-gray-500 mt-2 mb-2 flex items-center">
-        <FaClock className="mr-2" />
-        You can add multiple captions by entering the text, start time, and end
-        time, then clicking "Add Caption". Repeat for each caption you want to
-        add.
+        <FaClock className="mr-2" aria-hidden="true" />
+        <span>
+          You can add multiple captions by entering the text, start time, and
+          end time, then clicking "Add Caption". Repeat for each caption you
+          want to add.
+        </span>
       </p>
       <form onSubmit={handleSubmit} className="space-y-4">
+        <label htmlFor="caption-text" className="sr-only">
+          Caption Text
+        </label>
         <input
+          id="caption-text"
           type="text"
           value={text}
           onChange={(e) => setText(e.target.value)}
@@ -31,14 +40,22 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
         />
         <div className="flex space-x-4">
+          <label htmlFor="start-time" className="sr-only">
+            Start Time
+          </label>
           <input
+            id="start-time"
             type="number"
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
             placeholder="Start Time (seconds)"
             className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
+          <label htmlFor="end-time" className="sr-only">
+            End Time
+          </label>
           <input
+            id="end-time"
             type="number"
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
@@ -74,7 +91,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

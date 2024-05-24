@@ -11,8 +11,15 @@ const VideoInput = ({ setVideoUrl }) => {
 
   return (
     <div className="mb-4 relative">
-      <FaLink className="absolute left-3 top-3 text-gray-400" />
+      <FaLink
+        className="absolute left-3 top-[16px] text-gray-400"
+        aria-hidden="true"
+      />
+      <label htmlFor="video-url" className="sr-only">
+        Video URL
+      </label>
       <input
+        id="video-url"
         type="text"
         value={url}
         onChange={handleUrlChange}
