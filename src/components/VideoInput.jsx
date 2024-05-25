@@ -12,7 +12,7 @@ const VideoInput = ({ setVideoUrl }) => {
   return (
     <div className="mb-4 relative">
       <FaLink
-        className="absolute left-3 top-[16px] text-gray-400"
+        className="absolute left-3 top-[16px] text-gray-400 dark:text-gray-500"
         aria-hidden="true"
       />
       <label htmlFor="video-url" className="sr-only">
@@ -24,7 +24,7 @@ const VideoInput = ({ setVideoUrl }) => {
         value={url}
         onChange={handleUrlChange}
         placeholder="Enter video URL (e.g., https://www.youtube.com/watch?v=videoid)"
-        className="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="w-full pl-10 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-black dark:text-white"
       />
     </div>
   );

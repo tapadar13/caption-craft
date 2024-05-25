@@ -4,9 +4,24 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: "Inter", sans-serif;
-  background-color: #f9fafb;
+}
+
+body {
+  @apply bg-white text-black dark:bg-gray-900 dark:text-white;
+}
+
+html {
+  @apply bg-gray-900;
+}
+
+html.dark body {
+  background-color: #1a202c; /* Dark mode background color */
 }
 
 input,
@@ -21,4 +36,34 @@ button:focus {
 
 button {
   cursor: pointer;
+}
+
+/* Dark mode for scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background-color: #2d2d2d;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background-color: #555;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background-color: #333;
 }

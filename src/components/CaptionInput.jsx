@@ -19,7 +19,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
       <h2 id="caption-input-heading" className="sr-only">
         Caption Input
       </h2>
-      <p className="text-gray-500 mt-2 mb-2 flex items-center">
+      <p className="text-black dark:text-white mt-2 mb-2 flex items-center">
         <FaClock className="mr-2" aria-hidden="true" />
         <span>
           You can add multiple captions by entering the text, start time, and
@@ -37,7 +37,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
           value={text}
           onChange={(e) => setText(e.target.value)}
           placeholder="Enter caption text"
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-black dark:text-white"
         />
         <div className="flex gap-4">
           <label htmlFor="start-time" className="sr-only">
@@ -49,7 +49,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
             value={startTime}
             onChange={(e) => setStartTime(e.target.value)}
             placeholder="Start Time (seconds)"
-            className="w-full ml-0 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full ml-0 p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-black dark:text-white"
           />
           <label htmlFor="end-time" className="sr-only">
             End Time
@@ -60,7 +60,7 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
             value={endTime}
             onChange={(e) => setEndTime(e.target.value)}
             placeholder="End Time (seconds)"
-            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:border-gray-600 dark:bg-black dark:text-white"
           />
         </div>
         <button
@@ -74,11 +74,11 @@ const CaptionInput = ({ addCaption, removeCaption, captions }) => {
         {captions.map((caption) => (
           <div
             key={caption.id}
-            className="flex justify-between items-center border border-gray-300 p-2 rounded-lg"
+            className="flex justify-between items-center border border-black p-2 rounded-lg dark:border-white dark:bg-black"
           >
-            <div className="text-gray-700 flex-1">
+            <div className="text-black dark:text-white flex-1">
               <div>{caption.text}</div>
-              <div className="text-sm text-gray-500">
+              <div className="text-sm text-black dark:text-white">
                 Start: {caption.startTime}s, End: {caption.endTime}s
               </div>
             </div>

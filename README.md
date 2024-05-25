@@ -28,7 +28,7 @@ https://github.com/tapadar13/caption-craft.git
 2. **Navigate to the Project Directory**:
 
 ```bash
-cd captioncraft
+cd caption-craft
 ```
 
 3. **Install Dependencies**:
@@ -45,7 +45,7 @@ npm run dev
 
 5. **Open the Application in Your Browser**:
 
-   CaptionCraft should now be running locally. Open your web browser and navigate to `http://localhost:5174` to access the application.
+   CaptionCraft should now be running locally. Open your web browser and navigate to `http://localhost:5173` to access the application.
 
 ## Usage 🚀:
 

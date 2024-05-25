@@ -74,7 +74,7 @@ const VideoPlayer = ({ videoUrl, captions }) => {
 
   if (error && hasAttemptedLoad) {
     return (
-      <div className="text-red-500" role="alert">
+      <div className="text-red-500 dark:text-red-400" role="alert">
         {error}
       </div>
     );
@@ -90,7 +90,7 @@ const VideoPlayer = ({ videoUrl, captions }) => {
             <video
               src={videoUrl}
               controls
-              className="w-full"
+              className="w-full dark:bg-gray-800"
               ref={playerRef}
               onTimeUpdate={handleTimeUpdate}
               onError={() => setError("Invalid video URL")}
